@@ -8,7 +8,7 @@ Start the service using `ruby cowserv.rb` or your preferred Sinatra deployment o
 
 Send a `GET` or `POST` request to CowServ with a `message` parameter:
 
-    $ curl http://localhost:4567/?message=Hello%20world!
+    $ curl http://localhost:9876/?message=Hello%20world!
      ______________ 
     < Hello world! >
      -------------- 
@@ -20,7 +20,7 @@ Send a `GET` or `POST` request to CowServ with a `message` parameter:
 
 You may also use many of the standard cowsay command-line switches:
 
-    $ curl http://localhost:4567/?W=10&b&T=U&message=Hello%20world!
+    $ curl http://localhost:9876/?W=10&b&T=U&message=Hello%20world!
      ________ 
     / Hello  \
     \ world! /
@@ -35,7 +35,7 @@ The allowed switches are, in no particular order: `f, b, d, g, p, s, t, w, y, e,
 
 #### Cowfiles
 
-For a list of currently-available cowfiles, visit `http://localhost:4567/list`. These cowfiles can be used with the `f` switch.
+For a list of currently-available cowfiles, visit `http://localhost:9876/list`. These cowfiles can be used with the `f` switch.
 
 ### About
 
