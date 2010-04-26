@@ -37,13 +37,11 @@ helpers do
       "-#{key}" + (val.nil? ? "" : " \"#{escape(val)}\"")
     end.join(" ") + " "
     command << "\"#{escape(message)}\""
-    puts command
     `#{command}`
   end
   
   def link(path)
-    base_url = "http://#{request.host}#{request.port != 80 ? ":" + request.port.to_s : ""}/"
-    url = base_url + path
+    url = "http://#{request.host}#{request.port != 80 ? ":" + request.port.to_s : ""}/#{path}"
     "<a href=\"#{url}\">#{url}</a>"
   end
 end
