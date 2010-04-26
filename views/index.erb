@@ -1,0 +1,43 @@
+<h1>CowServ</h1>
+
+<p>CowServ is a web service which exposes the wonders of <a href="http://www.nog.net/~tony/warez/cowsay.shtml">cowsay</a> to the world.</p>
+
+<h2>Usage</h2>
+
+<p>Send a <code>GET</code> or <code>POST</code> request to CowServ's index with a <code>message</code> parameter:</p>
+
+<pre>
+  $ curl <%= link("?message=Hello%20world!") %>
+   ______________ 
+  < Hello world! >
+   -------------- 
+          \   ^__^
+           \  (oo)\_______
+              (__)\       )\/\
+                  ||----w |
+                  ||     ||
+</pre>
+
+<p>You may also use many of the standard cowsay command-line switches, e.g.</p>
+
+<pre>
+  $ curl <%= link("?W=10&b&T=U&message=Hello%20world!") %>
+   ________ 
+  / Hello  \
+  \ world! /
+   -------- 
+          \   ^__^
+           \  (==)\_______
+              (__)\       )\/\
+               U ||----w |
+                  ||     ||
+</pre>
+
+<p>The allowed switches are, in no particular order: <code><%= COWSAY_OPTIONS.join(", ") %></code>. See the <a href="http://pwet.fr/man/linux/commandes/cowsay">cowsay man page</a> for details on each.</p>
+
+<h3>Cowfiles</h3>
+<p>For a list of currently-available cowfiles, go to <%= link("list") %>. These cowfiles may be used with the <code>f</code> switch.</p>
+
+<h2>About</h2>
+
+<p>CowServ was created by Ross Paffett, but would not be possible without the work of the creator of cowsay, Tony Monroe. CowServ itself is just a bit of Ruby powered by <a href="http://www.sinatrarb.com/">Sinatra</a>.</p>
