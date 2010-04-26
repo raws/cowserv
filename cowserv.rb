@@ -23,7 +23,7 @@ post "/" do
   cowsay(params[:message], extract_cowsay_options(params)) if params[:message]
 end
 
-get "/list" do
+get "/cowfiles" do
   read("cowsay -l").split("\n")[1..-1].join(" ").split(/\s+/).join("\n")
 end
 
