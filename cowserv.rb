@@ -8,9 +8,6 @@ require "sinatra"
 
 COWSAY_OPTIONS = %w(f b d g p s t w y e T W)
 
-set :environment, :production
-set :port, 9876
-
 get "/" do
   if params[:message]
     cowsay(params[:message], extract_cowsay_options(params))
