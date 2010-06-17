@@ -21,7 +21,7 @@ post "/" do
 end
 
 get "/cowfiles" do
-  read("cowsay -l").split("\n")[1..-1].join(" ").split(/\s+/).join("\n")
+  read("#{settings.cowsay || "cowsay"} -l").split("\n")[1..-1].join(" ").split(/\s+/).join("\n")
 end
 
 helpers do
@@ -33,17 +33,17 @@ helpers do
   def extract_cowsay_options(params)
     params.find_all { |key, val| COWSAY_OPTIONS.include?(key) }
   end
-
+  
   def escape(text)
     text.gsub("`", "\\`")
   end
-
+  
   def read(command)
     Open3.popen3(command)[1].read
   end
-
+  
   def cowsay(message, options = [])
-    command = "cowsay "
+    command = (settings.cowsay || "cowsay") + " "
     command << options.collect do |key, val|
       "-#{key}" + (val.nil? ? "" : " \"#{escape(val)}\"")
     end.join(" ") + " "
